@@ -1,5 +1,30 @@
+*{
+  box-sizing: border-box;
+}
+
+.navbar {
+  margin: 0px;
+  height: 100px;
+  background-color: rgb(196, 24, 24);
+}
+
 .App {
+  font-family: sans-serif;
+ 
+}
+
+.show-main-pokemon {
   text-align: center;
+  padding: 10px;
+  background-color: #c3e9eb;
+  border: 1px solid black;
+  min-height: 100vh;
+}
+
+.pokemon-list-btns {
+  background-color: #008CBA;
+  padding: 10px 20px;
+  border-radius: 5px;
 }
 
 .App-logo {
