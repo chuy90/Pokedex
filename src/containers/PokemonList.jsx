@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PokemonThumbnail from '../components/PokemonThumbnail';
-import logo from '../assets/pokelogo.png'
 
 const PokemonList = () => {
 const [pokemons, setPokemons] = useState([]);
@@ -20,8 +19,6 @@ const getPokemons = () => {
             });
             setPokemons(listOfPokemons);
         });          
-        // console.log(listOfPokemons);
-
         setNextPage(res.data.next);
         setPrevPage(res.data.previous);
     })
@@ -46,15 +43,10 @@ useEffect(() => {
 
   return (
      
-    <div>
-        <nav className="navbar">
-            <img src={logo} className="nav-logo" alt="pokemon logo"/>
-        </nav>
-        
+    <div>      
         <div className="show-main-pokemon">
-            {
-                <div className="container"> 
-                    <div className="row">
+            { 
+                    <div className="row pkmn-list">
                         {
                             pokemons.map((pokemon, index) => (
                                 <PokemonThumbnail
@@ -66,7 +58,6 @@ useEffect(() => {
                                     ))
                     }
                     </div>
-                </div>
                 
             }
         

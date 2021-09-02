@@ -1,12 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PokemonThumbnail = ({id, name, image}) => {
     return (
-        <div className="card col-md-3 mb-2">
+        <div className="cards col-md-4 p-2 mb-2 pokemon-cards">
             <div className="number">
                 <small>{id}</small>
             </div>
-            <img src={image} alt={name} />
+            <Link to={`/pokemon/${id}`}>
+                <img src={image} alt={name} />
+            </Link>
+            
             <div className="">
                 <h3>{name}</h3>
             </div>
