@@ -1,21 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const PokemonThumbnail = ({id, name, image}) => {
-    return (
-        <div className="cards col-md-4 p-2 mb-2 pokemon-cards">
-            <div className="number">
-                <small>{id}</small>
-            </div>
-            <Link to={`/pokemon/${id}`}>
-                <img src={image} alt={name} />
-            </Link>
-            
-            <div className="">
-                <h3>{name}</h3>
-            </div>
-        </div>
-    )
-}
+const PokemonThumbnail = ({ id, name, image }) => {
+  PokemonThumbnail.propTypes = {
+    name: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  };
+  return (
+    <Link className="card-link" to={`/pokemon/${id}`}>
+      <div className="pokemon-cards">
+        <img className="card-img" src={image} alt={name} />
+        <h3 className="card-name">{name}</h3>
+      </div>
+    </Link>
+  );
+};
 
-export default PokemonThumbnail
+export default PokemonThumbnail;
