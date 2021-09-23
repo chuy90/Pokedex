@@ -11,8 +11,10 @@ const PokemonThumbnail = ({ id, name, image }) => {
   return (
     <Link className="card-link" to={`/pokemon/${id}`}>
       <div className="pokemon-cards">
-        <img className="card-img" src={image} alt={name} />
-        <h3 className="card-name">{name}</h3>
+        <div className="card-body">
+          <img className="card-img" src={image} alt={name} />
+          <h3 className="card-name">{name}</h3>
+        </div>
       </div>
     </Link>
   );

@@ -4,11 +4,12 @@ import { useParams, Link } from 'react-router-dom';
 
 const PokemonView = () => {
   const { id } = useParams();
-  const [currentPokemon] = useState({});
+  const [currentPokemon, setCurrentPokemon] = useState('');
 
   const getPokemon = () => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       .then((res) => {
+        setCurrentPokemon(res);
         console.log(res);
       })
       .catch((err) => {
@@ -23,31 +24,30 @@ const PokemonView = () => {
 
   return (
 
-    <div className="container-view">
+    <div className="container">
       <div className="pokemon-cards-view">
         <h2>
           {currentPokemon.data ? currentPokemon.data.name : ''}
         </h2>
         <div>
-          <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt="img" />
+          <img className="img-view" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt="img" />
         </div>
-        <div>
+        <ul>
           {currentPokemon ? currentPokemon.data.stats.map((element) => (
-            <div key={element.stat.name}>
+            <li key={element.stat.name}>
               {`${element.stat.name}: `}
               { element.base_stat }
               <div style={{
                 height: '13px', width: `${element.base_stat}px`, display: 'inline-block', background: 'rgb(141, 28, 28)',
               }}
               />
-            </div>
+            </li>
           )) : '' }
-
-        </div>
+        </ul>
+        <Link to="/">
+          <button type="button" className="pokemon-btns">Back</button>
+        </Link>
       </div>
-      <Link to="/">
-        <button type="button" className="pokemon-btns">Back</button>
-      </Link>
     </div>
   );
 };

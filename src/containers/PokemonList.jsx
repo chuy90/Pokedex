@@ -41,8 +41,8 @@ const PokemonList = () => {
 
   return (
 
-    <div className="pkmn-list">
-      <div className="container">
+    <div className="container">
+      <div className="pkmn-list">
         {
                             pokemons.map((pokemon) => (
                               <PokemonThumbnail
