@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
+import { Divider, Slider } from '@mui/material';
 
 const PokemonView = () => {
   const { id } = useParams();
@@ -26,20 +28,44 @@ const PokemonView = () => {
 
     <div className="container">
       <div className="pokemon-cards-view">
-        <h2>
-          {currentPokemon.data ? currentPokemon.data.name : ''}
-        </h2>
-        <div>
-          <img className="img-view" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt="img" />
+        <div className="top-view">
+          <div className="img-view-container">
+            <img className="img-view" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt="img" />
+          </div>
+          <div className="text-view-container">
+            <h2>
+              {currentPokemon.data ? currentPokemon.data.name : ''}
+            </h2>
+            <label>
+              Height: .
+              {currentPokemon.data ? currentPokemon.data.height : ''}
+              M
+            </label>
+            <label>
+              Weight:
+              {' '}
+              {currentPokemon.data ? currentPokemon.data.weight : ''}
+              G
+            </label>
+          </div>
         </div>
+        <Divider className="divider">STATS</Divider>
         <ul>
           {currentPokemon ? currentPokemon.data.stats.map((element) => (
             <li key={element.stat.name}>
-              {`${element.stat.name}: `}
+              <label className="stat-name">{`${element.stat.name}: `}</label>
               { element.base_stat }
-              <div style={{
-                height: '13px', width: `${element.base_stat}px`, display: 'inline-block', background: 'rgb(141, 28, 28)',
-              }}
+              <Slider
+                width={100}
+                max={200}
+                defaultValue={element.base_stat}
+                sx={{
+                  width: 300,
+                  color: 'purple',
+                  '& .MuiSlider-thumb': {
+                    borderRadius: '1px',
+                  },
+                }}
               />
             </li>
           )) : '' }

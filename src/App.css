@@ -123,7 +123,36 @@ body {
 }
 
 .img-view {
-  width: 30%;
+  width: 100%;
+}
+
+.img-view-container {
+  justify-content: center;
+  display: flex;
+  width: 20%;
+}
+
+.text-view-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-view-container label {
+  color: rgb(167, 164, 164);
+}
+
+.stat-name {
+  font-size: 20px;
+}
+
+.top-view {
+  display: flex;
+  justify-content: center;
+}
+
+.divider {
+  color: rgb(167, 164, 164);
 }
 
 .App-logo {
