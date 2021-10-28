@@ -54,16 +54,17 @@ const PokemonView = () => {
           {currentPokemon ? currentPokemon.data.stats.map((element) => (
             <li key={element.stat.name}>
               <label className="stat-name">{`${element.stat.name}: `}</label>
-              { element.base_stat }
               <Slider
                 width={100}
-                max={200}
+                max={120}
                 defaultValue={element.base_stat}
+                // disabled="true"
                 sx={{
                   width: 300,
-                  color: 'purple',
                   '& .MuiSlider-thumb': {
                     borderRadius: '1px',
+                    width: '10%',
+                    thumbColorPrimary: 'purple',
                   },
                 }}
               />

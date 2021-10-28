@@ -1,32 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { PropTypes } from 'prop-types';
 import PokemonThumbnail from '../components/PokemonThumbnail';
 
-const PokemonList = () => {
-  const [pokemons, setPokemons] = useState([]);
-  const [currentPage, setCurrentPage] = useState('https://pokeapi.co/api/v2/pokemon/');
-  const [nextPage, setNextPage] = useState('');
-  const [prevPage, setPrevPage] = useState('');
-
-  const getPokemons = () => {
-    axios.get(currentPage)
-      .then((res) => {
-        Promise.all(res.data.results.map((pokemon) => axios.get(pokemon.url)))
-          .then((response) => {
-            const listOfPokemons = [];
-            response.forEach((pokemon) => {
-              listOfPokemons.push(pokemon.data);
-            });
-            setPokemons(listOfPokemons);
-          });
-        setNextPage(res.data.next);
-        setPrevPage(res.data.previous);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
-
+const PokemonList = ({
+  nextPage, prevPage, setCurrentPage, pokemons,
+}) => {
   const goToNextPage = () => {
     setCurrentPage(nextPage);
   };
@@ -34,10 +13,6 @@ const PokemonList = () => {
   const goToPreviousPage = () => {
     setCurrentPage(prevPage);
   };
-
-  useEffect(() => {
-    getPokemons();
-  }, [currentPage]);
 
   return (
 
@@ -70,4 +45,9 @@ const PokemonList = () => {
   );
 };
 
+PokemonList.propTypes = {
+  nextPage: PropTypes.string.isRequired,
+  prevPage: PropTypes.string.isRequired,
+  setCurrentPage: PropTypes.string.isRequired,
+};
 export default PokemonList;
