@@ -57,14 +57,6 @@ body {
   background-color: rgb(230, 227, 227);
 }
 
-/* .show-main-pokemon {
-  text-align: center;
-  padding: 10px;
-  background-color:rgb(202, 202, 202);
-  border: 1px solid black;
-  min-height: 100vh;
-} */
-
 .container {
   padding: 20px 10px;
 }
@@ -158,6 +150,16 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.stat-list {
+  position: absolute;
+  left: 0;
+  right: 50px;
+}
+
+.back-btn {
+  position: relative;
 }
 
 .text-view-container label {

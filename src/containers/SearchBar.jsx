@@ -17,6 +17,7 @@ const SearchBar = ({ onChangeValue }) =>{
     <div className="searchbar-container">
       <div className="searchbar">
         <input
+          data-cy="search-bar"
           type="search"
           placeholder="Search pokemon"
           onChange={handleChange}

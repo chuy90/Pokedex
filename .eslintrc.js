@@ -5,6 +5,7 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
+    'plugin:cypress/recommended',
     'airbnb',
   ],
   parserOptions: {
@@ -16,9 +17,11 @@ module.exports = {
   },
   plugins: [
     'react',
+    'cypress',
   ],
   rules: {
     'linebreak-style': 'off',
+    "jest/expect-expect": "off",
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
   },
 };

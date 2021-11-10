@@ -3,7 +3,7 @@ import axios from 'axios';
 import PokemonList from './PokemonList';
 import SearchBar from './SearchBar';
 
-const pokeApi = 'https://pokeapi.co/api/v2/pokemon/';
+const pokeApi = 'https://pokeapi.co/api/v2/pokemon?limit=21&offset=0';
 const PokemonsView = () => {
   const [nextPage, setNextPage] = useState('');
   const [prevPage, setPrevPage] = useState('');

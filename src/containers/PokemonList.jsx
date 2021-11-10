@@ -34,8 +34,8 @@ const PokemonList = ({
                 pokemons.length !== 0 && (
                 <div className="">
                   <div className="btns-containter">
-                    <button type="button" className="pokemon-btns btns-containter-left" onClick={goToPreviousPage}>Previous</button>
-                    <button type="button" className="pokemon-btns btns-containter-right" onClick={goToNextPage}>Next</button>
+                    <button type="button" data-cy="left-button" className="pokemon-btns btns-containter-left" onClick={goToPreviousPage}>Previous</button>
+                    <button type="button" data-cy="right-button" className="pokemon-btns btns-containter-right" onClick={goToNextPage}>Next</button>
                   </div>
                 </div>
                 )

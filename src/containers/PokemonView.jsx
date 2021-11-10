@@ -55,10 +55,11 @@ const PokemonView = () => {
             <li key={element.stat.name}>
               <label className="stat-name">{`${element.stat.name}: `}</label>
               <Slider
+                className="stat-list"
                 width={100}
                 max={120}
                 defaultValue={element.base_stat}
-                // disabled="true"
+                disabled="true"
                 sx={{
                   width: 300,
                   '& .MuiSlider-thumb': {
@@ -72,7 +73,7 @@ const PokemonView = () => {
           )) : '' }
         </ul>
         <Link to="/">
-          <button type="button" className="pokemon-btns">Back</button>
+          <button type="button" className="pokemon-btns back-btn">Back</button>
         </Link>
       </div>
     </div>
